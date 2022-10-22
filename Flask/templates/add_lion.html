@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="header.js"></script>
+    <title>SNI x KWT</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+</head>
+
+<body>
+<main-header></main-header>    <div class="flex items-center justify-center sm:p-12">
+        <div class="mx-auto w-full max-w-[550px] bg-white">
+            <form class="py-6 px-9">
+                <div class="mb-5">
+                    <h1 class="mb-3 block text-2xl text-center font-medium text-gray-800">
+                        Add Lion Data to Database
+                    </h1>
+                </div>
+                <div class="mb-5">
+                    <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
+                        Lion Name
+                    </label>
+                    <input type="text" name="name" id="name" placeholder="Simba"
+                        class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md" />
+                </div>
+                <div class="mb-5">
+                    <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
+                        Lion Pride
+                    </label>
+                    <input type="text" name="name" id="name" placeholder="Engoyanai"
+                        class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md" />
+                </div>
+                <div class="mb-5">
+                    <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
+                        Lion Date of Birth
+                    </label>
+                    <input type="date" name="name" id="name" placeholder="Date"
+                        class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md" />
+                </div>
+                <div class="mb-5">
+                    <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
+                        Lion Description
+                    </label>
+                    <textarea type="text" name="name" id="name" placeholder="Simba"
+                        class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md"></textarea>
+                </div>
+
+                <div class="mb-6 pt-4">
+                    <label class="mb-5 block text-lg font-semibold text-gray-800">
+                        Upload File
+                    </label>
+                    <div class="border bg-gray-100 border-dashed rounded-lg border-gray-300 relative">
+                        <input type="file" id="test"
+                            class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
+                        <div class="text-center mt-4 p-10 absolute top-0 right-0 left-0 m-auto">
+                            <h4 class="text-gray-700 font-medium">
+                                Drop files anywhere to upload
+                                <br />or
+                            </h4>
+                            <p class="text-gray-700 font-medium">Select Files</p>
+                        </div>
+                        <span id="filename">image</span>
+                    </div>
+                </div>
+                <div>
+                    <button
+                        class="hover:shadow-form w-full rounded-md bg-blue-600 py-3 px-8 text-center text-lg font-semibold text-white outline-none">
+                        Upload
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('test').addEventListener("change", function () {
+        var fullPath = document.getElementById('img').value;
+        if (fullPath) {
+            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+            var image = fullPath.substring(startIndex);
+            if (image.indexOf('\\') === 0 || image.indexOf('/') === 0) {
+                image = image.substring(1);
+            }
+            document.getElementById("filename").innerHTML = image;
+        }
+    });
+</script>
+
+</html>
