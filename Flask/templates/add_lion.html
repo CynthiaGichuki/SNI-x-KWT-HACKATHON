@@ -53,7 +53,7 @@
                         Upload File
                     </label>
                     <div class="border bg-gray-100 border-dashed rounded-lg border-gray-300 relative">
-                        <input type="file" id="test"
+                        <input type="file" id="inp"
                             class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
                         <div class="text-center mt-4 p-10 absolute top-0 right-0 left-0 m-auto">
                             <h4 class="text-gray-700 font-medium">
@@ -76,8 +76,8 @@
     </div>
 </body>
 <script>
-    document.getElementById('test').addEventListener("change", function () {
-        var fullPath = document.getElementById('img').value;
+    document.getElementById('inp').addEventListener("change", function () {
+        var fullPath = document.getElementById('inp').value;
         if (fullPath) {
             var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
             var image = fullPath.substring(startIndex);

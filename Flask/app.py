@@ -11,5 +11,9 @@ def index():
 def add_lion():
 	return render_template("add_lion.html")
 
+@app.route("/findlion")
+def find_lion():
+	return render_template("find_lion.html")
+
 if __name__ == '__main__':
 	app.run(debug=True)
