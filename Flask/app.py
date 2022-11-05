@@ -1,22 +1,15 @@
 import os
-from flask import Flask, render_template, request,  redirect, url_for
-# from werkzeug import secure_filename
+from flask import Flask, render_template, request
+from werkzeug.utils import secure_filename
 
-
-
+UPLOAD_FOLDER = 'image/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
-
-# @app.route("/")
-# @app.route("/index")
-# def index():
-# 	return render_template("index.html")
-
-
-path = r"Flask\dataset"
-assert os.path.isfile(path)
-with open(path, "r") as f:
-    pass
-
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+@app.route("/")
+@app.route("/index")
+def index():
+	return render_template("index.html")
 
 @app.route("/", methods=['GET','POST'])
 def add_lion():
@@ -33,20 +26,17 @@ def add_lion():
 		# return "Your name is "+lion_name +"/n pride " + lion_pride + dob
 
 	return render_template("add_lion.html")
-	
 
-		
+@app.route("/findlion")
+def find_lion():
+	return render_template("find_lion.html")
 
-	# # lion_name = request.files['name']
-	# # lion_pride = request.files['lion_pride']
-	# imagefile = request.files['imagefile']
-	# image_path = "./images/" + imagefile.filename
-	# imagefile.save(image_path)
-	# return render_template("add_lion.html")
-
-# @app.route("/findlion", methods=['GET'])
-# def find_lion():
-# 	return render_template("find_lion.html")
+@app.route('/results', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(os.path.join(app.config['UPLOAD_FOLDER'],secure_filename(f.filename)))
+      return 'Image saved at ' + UPLOAD_FOLDER + 'folder'
 
 if __name__ == '__main__':
 	app.run(debug=True)
