@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="header.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <title>SNI x KWT</title>
     <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
 </head>
 
 <body>
-<main-header></main-header>    <div class="flex items-center justify-center sm:p-12">
+    <main-header></main-header>
+    <div class="flex items-center justify-center sm:p-12">
         <div class="mx-auto w-full max-w-[550px] bg-white">
-            <form action="http://localhost:5000/results" method="POST" class="py-6 px-9" enctype = "multipart/form-data">
+            <form action="http://localhost:5000/results" method="POST" class="py-6 px-9" enctype="multipart/form-data">
                 <div class="mb-5">
                     <h1 class="mb-3 block text-2xl text-center font-medium text-gray-800">
                         Add Lion Data to Database
@@ -53,16 +54,19 @@
                         Upload File
                     </label>
                     <div class="border bg-gray-100 border-dashed rounded-lg border-gray-300 relative">
-                        <input type="file" name="imagefile" id="input_img"
-                            class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
-                        <div class="text-center mt-4 p-10 absolute top-0 right-0 left-0 m-auto">
-                            <h4 class="text-gray-700 font-medium">
-                                Drop files anywhere to upload
-                                <br />or
-                            </h4>
-                            <p class="text-gray-700 font-medium">Select Files</p>
+                        <div id="inp" class="">
+                            <input onchange="loadFile(event)" type="file" name="imagefile" id="input_img"
+                                class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
+                            <div class="text-center mt-4 p-10 absolute top-0 right-0 left-0 m-auto">
+                                <h4 class="text-gray-700 font-medium">
+                                    Drop files anywhere to upload
+                                    <br />or
+                                </h4>
+                                <p class="text-gray-700 font-medium">Select Files</p>
+                            </div>
                         </div>
                         <span id="filename">image</span>
+                        <img id="output" class="" />
                     </div>
                 </div>
                 <div>
@@ -76,18 +80,6 @@
         </div>
     </div>
 </body>
-<script>
-    document.getElementById('input_img').addEventListener("change", function () {
-        var fullPath = document.getElementById('input_img').value;
-        if (fullPath) {
-            var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-            var image = fullPath.substring(startIndex);
-            if (image.indexOf('\\') === 0 || image.indexOf('/') === 0) {
-                image = image.substring(1);
-            }
-            document.getElementById("filename").innerHTML = image;
-        }
-    });
-</script>
+    <script src="{{url_for('static', filename='styles/style.js')}}"></script>
 
 </html>
