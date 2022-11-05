@@ -13,7 +13,7 @@
 <body>
 <main-header></main-header>    <div class="flex items-center justify-center sm:p-12">
         <div class="mx-auto w-full max-w-[550px] bg-white">
-            <form class="py-6 px-9" action="{{ url_for('add_lion') }}" method="post" enctype="multipart/form-data">
+            <form action="http://localhost:5000/results" method="POST" class="py-6 px-9" enctype = "multipart/form-data">
                 <div class="mb-5">
                     <h1 class="mb-3 block text-2xl text-center font-medium text-gray-800">
                         Add Lion Data to Database
@@ -53,7 +53,7 @@
                         Upload File
                     </label>
                     <div class="border bg-gray-100 border-dashed rounded-lg border-gray-300 relative">
-                        <input type="file" name = "imagefile" id="input_img"
+                        <input type="file" name="imagefile" id="input_img"
                             class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
                         <div class="text-center mt-4 p-10 absolute top-0 right-0 left-0 m-auto">
                             <h4 class="text-gray-700 font-medium">
@@ -72,18 +72,13 @@
                     </button>
                 </div>
             </form>
-            <!-- <form action="{{ url_for('add_lion') }}" method = "POST" enctype = "multipart/form-data">
-         <label for="">Insert image</label>
-         <input type = "file" name = "file" />
-         <button>Submit</button>
-         <!-- <input type = "submit" name="upload"/> -->
-      <!-- </form>    --> -->
+
         </div>
     </div>
 </body>
 <script>
-    document.getElementById('inp').addEventListener("change", function () {
-        var fullPath = document.getElementById('inp').value;
+    document.getElementById('input_img').addEventListener("change", function () {
+        var fullPath = document.getElementById('input_img').value;
         if (fullPath) {
             var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
             var image = fullPath.substring(startIndex);
