@@ -11,8 +11,20 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
 	return render_template("index.html")
 
-@app.route("/addlion")
+@app.route("/", methods=['GET','POST'])
 def add_lion():
+	if request.method == "POST":
+		# lion_name = request.form['lion_name']
+		# lion_pride = request.form['lion_pride']
+		# dob = request.form['dob']
+		imagefile = request.files['imagefile']		
+		image_path = "/" + imagefile.filename
+		imagefile.save(image_path)
+
+		return "upload successful "+ imagefile 
+		 
+		# return "Your name is "+lion_name +"/n pride " + lion_pride + dob
+
 	return render_template("add_lion.html")
 
 @app.route("/findlion")
@@ -28,3 +40,5 @@ def upload_file():
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
+
