@@ -8,3 +8,10 @@ We will use computer vision to do the recognition and identification of the lion
 These unique features can be used to filter the lion identity from the database with pattern recognition and finding a match.
 
 We are hoping that this will help with automating the data management process and ultimately with the conservation of lions.
+
+
+for the model we use sift opencv algorithm to match image features then identify individual lions.
+This article goes into the details of the algorithm
+ 	[title](https://medium.com/data-breach/introduction-to-sift-scale-invariant-feature-transform-65d7f3a72d40)
+ we are then working on deploying the model on flask so that ita can be used for lion identification.
+
