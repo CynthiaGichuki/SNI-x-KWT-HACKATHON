@@ -11,7 +11,7 @@ We are hoping that this will help with automating the data management process an
 
 
 for the model we use sift opencv algorithm to match image features then identify individual lions.
-This article goes into the details of the algorithm
- 	[title](https://medium.com/data-breach/introduction-to-sift-scale-invariant-feature-transform-65d7f3a72d40)
+This article goes into the details of the 
+ 	[sift](https://medium.com/data-breach/introduction-to-sift-scale-invariant-feature-transform-65d7f3a72d40) algorithm
  we are then working on deploying the model on flask so that ita can be used for lion identification.
 
