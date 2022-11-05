@@ -13,7 +13,7 @@
 <body>
 <main-header></main-header>    <div class="flex items-center justify-center sm:p-12">
         <div class="mx-auto w-full max-w-[550px] bg-white">
-            <form class="py-6 px-9">
+            <!-- <form class="py-6 px-9" action="{{ url_for('add_lion') }}" method="post" enctype="multipart/form-data">
                 <div class="mb-5">
                     <h1 class="mb-3 block text-2xl text-center font-medium text-gray-800">
                         Add Lion Data to Database
@@ -23,28 +23,28 @@
                     <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
                         Lion Name
                     </label>
-                    <input type="text" name="name" id="name" placeholder="Simba"
+                    <input type="text" name="lion_name" id="name" placeholder="Simba"
                         class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md" />
                 </div>
                 <div class="mb-5">
                     <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
                         Lion Pride
                     </label>
-                    <input type="text" name="name" id="name" placeholder="Engoyanai"
+                    <input type="text" name="lion_pride" id="name" placeholder="Engoyanai"
                         class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md" />
                 </div>
                 <div class="mb-5">
                     <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
                         Lion Date of Birth
                     </label>
-                    <input type="date" name="name" id="name" placeholder="Date"
+                    <input type="date" name="dob" id="name" placeholder="Date"
                         class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md" />
                 </div>
                 <div class="mb-5">
                     <label for="name" class="mb-3 block text-lg font-medium text-gray-800">
                         Lion Description
                     </label>
-                    <textarea type="text" name="name" id="name" placeholder="Simba"
+                    <textarea type="text" name="describe" id="name" placeholder="Simba"
                         class="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-lg font-medium text-[#6B7280] outline-none focus:border-blue-600 focus:shadow-md"></textarea>
                 </div>
 
@@ -53,7 +53,7 @@
                         Upload File
                     </label>
                     <div class="border bg-gray-100 border-dashed rounded-lg border-gray-300 relative">
-                        <input type="file" id="inp"
+                        <input type="file" name = "filename" id="input_img"
                             class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
                         <div class="text-center mt-4 p-10 absolute top-0 right-0 left-0 m-auto">
                             <h4 class="text-gray-700 font-medium">
@@ -71,7 +71,12 @@
                         Upload
                     </button>
                 </div>
-            </form>
+            </form> -->
+            <form action="{{ url_for('add_lion') }}" method = "POST" enctype = "multipart/form-data">
+         <label for="">Insert image</label>
+         <input type = "file" name = "filename" />
+         <input type = "submit" name="upload"/>
+      </form>   
         </div>
     </div>
 </body>
